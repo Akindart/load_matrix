@@ -1,0 +1,82 @@
+\hypertarget{classEigen_1_1LoadMatrixFile}{}\section{Eigen\+:\+:Load\+Matrix\+File Class Reference}
+\label{classEigen_1_1LoadMatrixFile}\index{Eigen\+::\+Load\+Matrix\+File@{Eigen\+::\+Load\+Matrix\+File}}
+
+
+This class exists for the sole purpose of loading matrices stored in files to Eigen matrices. The original idea was to load matrices generated in matlab.  
+
+
+
+
+{\ttfamily \#include $<$load\+\_\+matrix\+\_\+file.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , int \+\_\+\+Rows, int \+\_\+\+Cols$>$ }\\static Matrix$<$ T, \+\_\+\+Rows, \+\_\+\+Cols $>$ \hyperlink{classEigen_1_1LoadMatrixFile_ac889e67dd87c9aeb269e97744f493167}{load\+\_\+from\+\_\+file} (const std\+::string \&matrix\+\_\+file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em This functions does all the work and load a matrix stored in a file to an eigen matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class exists for the sole purpose of loading matrices stored in files to Eigen matrices. The original idea was to load matrices generated in matlab. 
+
+Definition at line 23 of file load\+\_\+matrix\+\_\+file.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Eigen\+::\+Load\+Matrix\+File@{Eigen\+::\+Load\+Matrix\+File}!load\+\_\+from\+\_\+file@{load\+\_\+from\+\_\+file}}
+\index{load\+\_\+from\+\_\+file@{load\+\_\+from\+\_\+file}!Eigen\+::\+Load\+Matrix\+File@{Eigen\+::\+Load\+Matrix\+File}}
+\subsubsection[{\texorpdfstring{load\+\_\+from\+\_\+file(const std\+::string \&matrix\+\_\+file\+\_\+name)}{load_from_file(const std::string &matrix_file_name)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int \+\_\+\+Rows, int \+\_\+\+Cols$>$ static Matrix$<$T, \+\_\+\+Rows, \+\_\+\+Cols$>$ Eigen\+::\+Load\+Matrix\+File\+::load\+\_\+from\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{matrix\+\_\+file\+\_\+name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classEigen_1_1LoadMatrixFile_ac889e67dd87c9aeb269e97744f493167}{}\label{classEigen_1_1LoadMatrixFile_ac889e67dd87c9aeb269e97744f493167}
+
+
+This functions does all the work and load a matrix stored in a file to an eigen matrix. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrix\+\_\+file\+\_\+name} & the path the the matrix file (in general, absolute path)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix loaded 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file load\+\_\+matrix\+\_\+file.\+hpp.
+
+
+\begin{DoxyCode}
+37                                                                                     \{
+38 
+39         Matrix<T, \_Rows, \_Cols> new\_matrix = Matrix<T, \_Rows, \_Cols>::Constant(0);
+40 
+41         std::fstream matrix\_file\_stream(matrix\_file\_name, std::ios\_base::in);
+42 
+43         T a;
+44 
+45         \textcolor{keywordflow}{if}(matrix\_file\_stream.is\_open()) \{
+46 
+47             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \_Rows; ++i) \{
+48 
+49                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \_Cols && (matrix\_file\_stream >> a); ++j) \{
+50 
+51                     new\_matrix(i, j) = a;
+52 
+53                 \}
+54 
+55             \}
+56 
+57         \}
+58 
+59         \textcolor{keywordflow}{return} new\_matrix;
+60 
+61     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+load\+\_\+matrix\+\_\+file.\+hpp\end{DoxyCompactItemize}
