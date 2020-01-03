@@ -20,6 +20,7 @@ target_link_libraries(load_matrix
                       )
 
 SET_TARGET_PROPERTIES(load_matrix PROPERTIES SOVERSION 0)
+set_target_properties(load_matrix PROPERTIES PUBLIC_HEADER load_matrix_file.hpp)
 configure_file(load_matrix.pc.in load_matrix.pc @ONLY)
 
 add_executable(load_test main.cpp)
